@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react';
 import './AddTransaction.css'
 
 export const AddTransaction = () => {
+
+    const [description, setDescription] = useState()
+    const [amount, setAmount] = useState()
+
     return (
         <div>
             <h3>
@@ -13,7 +17,9 @@ export const AddTransaction = () => {
                         Description
                     </label>
                     <input  type="text" 
-                            placeholder="Enter Description"/>
+                            placeholder="Enter Description"
+                            value={description}
+                            onChange = {(e)=>{setDescription(e.target.value)}}/>
                     <small>
                         Kindly Enter Description
                     </small>
@@ -24,7 +30,9 @@ export const AddTransaction = () => {
                     </label>
                     <input  type="number"
                             step="0.00000000001" 
-                            placeholder="Enter Amount"/>
+                            placeholder="Enter Amount"
+                            value={amount}
+                            onChange = {(e)=>{setAmount(e.target.value)}}/>
                     <small>
                         Kindly Enter Amount
                     </small>
