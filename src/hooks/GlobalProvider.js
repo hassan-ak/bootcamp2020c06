@@ -9,9 +9,18 @@ import {GlobalContext} from './GlobalContext';
 export const GloablProvider = ({children})=>{
     const [state, dispatch] = useReducer(AppReducer, initialState)
 
+        // actions
+        function deleteTransaction(id){
+            dispatch({
+                type: 'DEL',
+                payload: id
+            });  
+        }
+
     return(
         <GlobalContext.Provider
             value = {{transactions:state.transactions,
+                    deleteTransaction,
                       }}>
                 {children}
         </GlobalContext.Provider>
