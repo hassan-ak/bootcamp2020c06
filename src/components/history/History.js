@@ -26,6 +26,7 @@ export const History = () => {
                 {context.transactions.map(transaction => (
                     <Transactions   key={transaction.id} 
                                     transaction={transaction}
+                                    delete={context.deleteTransaction}
                     />
                 ))}
             </ul>

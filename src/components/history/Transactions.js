@@ -12,7 +12,8 @@ export const Transactions = (props) => {
                     <span>
                         {sign}${Math.abs(props.transaction.amount)}
                     </span>
-                    <button className="del">
+                    <button className="del"
+                    onClick={()=>{props.delete(props.transaction.id)}}>
                         X
                     </button>
                 </li> 
