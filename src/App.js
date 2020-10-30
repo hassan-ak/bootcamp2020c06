@@ -5,14 +5,18 @@ import { History } from "./components/history/History";
 import { AddTransaction } from "./components/addTransaction/AddTransaction";
 import { Footer } from "./components/footer/Footer";
 
+import './App.css';
+
 function App() {
   return (
     <div>
       <Header></Header>
-      <Balance></Balance>
-      <Summary></Summary>
-      <History></History>
-      <AddTransaction></AddTransaction>
+      <div className="container">
+        <Balance></Balance>
+        <Summary></Summary>
+        <History></History>
+        <AddTransaction></AddTransaction>
+      </div>
       <Footer></Footer>
     </div>
   );
