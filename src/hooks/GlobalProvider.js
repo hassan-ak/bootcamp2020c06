@@ -14,13 +14,23 @@ export const GloablProvider = ({children})=>{
             dispatch({
                 type: 'DEL',
                 payload: id
-            });  
+            });      
         }
+
+        function addTransaction(transaction){
+            dispatch ({
+                type: 'ADD',
+                payload: transaction
+            });
+        }
+
+        
 
     return(
         <GlobalContext.Provider
             value = {{transactions:state.transactions,
                     deleteTransaction,
+                    addTransaction,
                       }}>
                 {children}
         </GlobalContext.Provider>
