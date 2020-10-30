@@ -1,0 +1,17 @@
+.balance{
+    margin-bottom: 10px;
+}
+
+.balance h4{
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.balance h1{
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.balance span:first-of-type{
+    margin-right: 10px;
+}
