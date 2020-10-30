@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {GlobalContext} from '../../hooks/GlobalContext'
+import { Transactions } from "./Transactions";
 import './History.css'
 
 export const History = () => {
+    const context = useContext(GlobalContext)
+    console.log(context.transactions)
     return (
         <div className="transaction-history">
             <h3>Transaction History</h3>
-            <ul class="list">
+            {/* <ul class="list">
                 <li class="income-h">In<span>$100</span>
                     <button class="del">X</button>
                 </li>
@@ -18,7 +22,15 @@ export const History = () => {
                 <li class="expense-h">Out1<span>-$70</span>
                     <button class="del">X</button>
                 </li>
+            </ul> */}
+             <ul className="list">
+                {context.transactions.map(transaction => (
+                    <Transactions   key={transaction.id} 
+                                    transaction={transaction}
+                    />
+                ))}
             </ul>
+            
         </div>
     )
 }

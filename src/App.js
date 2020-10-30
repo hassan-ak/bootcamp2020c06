@@ -6,10 +6,11 @@ import { AddTransaction } from "./components/addTransaction/AddTransaction";
 import { Footer } from "./components/footer/Footer";
 
 import './App.css';
+import { GloablProvider } from "./hooks/GlobalProvider";
 
 function App() {
   return (
-    <div>
+    <GloablProvider>
       <Header></Header>
       <div className="container">
         <Balance></Balance>
@@ -18,7 +19,7 @@ function App() {
         <AddTransaction></AddTransaction>
       </div>
       <Footer></Footer>
-    </div>
+    </GloablProvider>
   );
 }
 
