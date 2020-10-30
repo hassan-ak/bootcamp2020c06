@@ -6,6 +6,8 @@ export const AddTransaction = () => {
 
     const [description, setDescription] = useState()
     const [amount, setAmount] = useState()
+    const [desStyle,setDesStyle] = useState("")
+    const [amStyle,setAmStyle] = useState("")
 
     const context = useContext(GlobalContext)
 
@@ -30,8 +32,27 @@ export const AddTransaction = () => {
             }
     }
 
+    // Check Error
+    const checkDesStyle = ()=>{
+        if (typeof description == 'undefined' || description.length === 0){
+            setDesStyle("smallError")
+        } else {
+            setDesStyle("")
+        }
+    }
+    const checkAmsStyle = ()=>{
+        if (typeof amount == 'undefined' || amount.length === 0){
+            setAmStyle("smallError")
+        }else{
+            setAmStyle("smallSuccess")
+        }
+    }
+
+    // On submit Checks
     const onSubmit = (e) => {
         e.preventDefault();
+        checkDesStyle();
+        checkAmsStyle();
     }
 
     return (
@@ -48,7 +69,7 @@ export const AddTransaction = () => {
                             placeholder="Enter Description"
                             value={description}
                             onChange = {(e)=>{setDescription(e.target.value)}}/>
-                    <small>
+                    <small className={desStyle}>
                         Kindly Enter Description
                     </small>
                 </div>
@@ -61,7 +82,7 @@ export const AddTransaction = () => {
                             placeholder="Enter Amount"
                             value={amount}
                             onChange = {(e)=>{setAmount(e.target.value)}}/>
-                    <small>
+                    <small className={amStyle}>
                         Kindly Enter Amount
                     </small>
                 </div>
