@@ -5,7 +5,6 @@ import './History.css'
 
 export const History = () => {
     const context = useContext(GlobalContext)
-    console.log(context.transactions)
     return (
         <div className="transaction-history">
             <h3>Transaction History</h3>
